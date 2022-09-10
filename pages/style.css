@@ -51,7 +51,6 @@ html {
   flex-direction: column;
   align-items: center;
 }
-
 .top-bar-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -67,7 +66,7 @@ html {
   align-self: center;
 }
 .top-bar-logo-image {
-  height: 2.7rem;
+  height: 3rem;
 }
 
 .head-line-section {
@@ -76,11 +75,9 @@ html {
   font-weight: 500;
   color: white;
 }
-
 .mt-4 {
   margin-top: 4rem;
 }
-
 .btn-outline {
   border: 1px solid #d2f664;
   box-sizing: border-box;
