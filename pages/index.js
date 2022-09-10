@@ -8,9 +8,10 @@ import ClipArt from "../src/components/ClipArt";
 
 export default function Home() {
   return (
-    <div className="page">
+    <>
       <Head>
         <title>Kongkow IT Pekanbaru</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="preload"
           href="/fonts/Konnect-Regular.otf"
@@ -38,6 +39,6 @@ export default function Home() {
       <RoundArt />
       <GridArt />
       <ClipArt />
-    </div>
+    </>
   );
 }

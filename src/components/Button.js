@@ -1,9 +1,10 @@
 import Head from "next/head";
 
-export default function Button({ text, outline = false }) {
+export default function Button({ text, outline = false, onClick }) {
   return (
     <div
-      className={`z-20 cursor-pointer rounded-lg font-medium ${
+      onClick={onClick}
+      className={`z-20 cursor-pointer rounded-lg ${
         outline ? "text-white btn-outline" : " text-black btn"
       } `}
     >
