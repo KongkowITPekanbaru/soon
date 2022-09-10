@@ -3,7 +3,7 @@ import Head from "next/head";
 export default function Button({ text, outline = false }) {
   return (
     <div
-      className={`py-2 z-20 cursor-pointer px-4 rounded-lg ${
+      className={`z-20 cursor-pointer rounded-lg font-medium ${
         outline ? "text-white btn-outline" : " text-black btn"
       } `}
     >
