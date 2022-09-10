@@ -108,11 +108,15 @@
   box-sizing: border-box;
 }
 .gradient-blur {
-    background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.8));
-    margin-top: -100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
+  margin-top: -100vh;
 
-    opacity: 0.05;
+  opacity: 0.05;
 }
 .round-art-gradient {
-    background: linear-gradient(180deg, #002E24 0%, rgba(5, 112, 88, 0.46) 35.92%);
+  background: linear-gradient(
+    180deg,
+    #002e24 0%,
+    rgba(5, 112, 88, 0.46) 35.92%
+  );
 }
