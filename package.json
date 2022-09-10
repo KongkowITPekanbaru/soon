@@ -1,5 +1,5 @@
 {
-  "name": "soon",
+  "name": "@kongkowitpku/soon",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,5 +16,6 @@
   "devDependencies": {
     "eslint": "8.23.0",
     "eslint-config-next": "12.3.0"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
