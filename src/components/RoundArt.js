@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 export default function RoundArt() {
   return (
     <div className=" absolute  z-10  round-art">

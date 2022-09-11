@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 export default function Button({ text, outline = false, onClick }) {
   return (
     <div

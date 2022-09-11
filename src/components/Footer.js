@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 export default function Footer() {
   return (
     <div className="center-child absolute bottom-2 left-0 right-0 footer z-20 md:bottom-4">
