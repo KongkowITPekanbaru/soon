@@ -12,7 +12,7 @@ jobs:
       changelog: ${{ steps.github_tag_action.outputs.changelog }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Bump version and push tag
         id: github_tag_action
@@ -28,13 +28,12 @@ jobs:
     if: ${{ needs.bump_version.outputs.new_tag != null }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
@@ -45,30 +44,22 @@ jobs:
       - name: Export SSG
         run: yarn run export
 
-      - name: Pin to IPFS
-        id: upload
-        uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
+      - name: Deploy to IPFS
+        uses: web3-storage/add-to-web3@v2
+        id: web3
         with:
-          pin-name: Kongkow ${{ needs.bump_version.outputs.new_tag }}
-          path: "./out"
-          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
-          pinata-secret-api-key: ${{ secrets.PINATA_API_SECRET_KEY }}
-
-      - name: Convert CIDv0 to CIDv1
-        id: convert_cidv0
-        uses: uniswap/convert-cidv0-cidv1@v1.0.0
-        with:
-          cidv0: ${{ steps.upload.outputs.hash }}
+          path_to_add: out
+          web3_token: ${{ secrets.WEB3_STORAGE_TOKEN}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update DNS with new IPFS hash testnet
         env:
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
           RECORD_DOMAIN: "kongkowitpku.xyz"
           RECORD_NAME: "_dnslink"
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
-        uses: textileio/cloudflare-update-dnslink@0fe7b7a1ffc865db3a4da9773f0f987447ad5848
-        with:
-          cid: ${{ steps.upload.outputs.hash }}
+        run: npx dnslink-cloudflare --record _dnslink --domain kongkowitpku.xyz --link /ipfs/${{ steps.web3.outputs.cid }}
 
       - name: Create GitHub Release
         id: create_release
@@ -80,13 +71,11 @@ jobs:
           release_name: Release ${{ needs.bump_version.outputs.new_tag }}
           body: |
             IPFS hash of the deployment:
-            - CIDv0: `${{ steps.upload.outputs.hash }}`
-            - CIDv1: `${{ steps.convert_cidv0.outputs.cidv1 }}`
-            This is a Release of Coming Soon Page. The latest release is always accessible via an alias to the Cloudflare IPFS gateway at [kongkowitpku.xyz](https://kongkowitpku.xyz).
-            You can also access Coming Soon Page from any IPFS gateway.
+            - **CID Hex Digest**: `${{ steps.web3.outputs.cid }}`
+            The latest release is always accessible via an alias to the Cloudflare IPFS gateway at [kongkowitpku.xyz](https://kongkowitpku.xyz).
+            You can also access This Page from any IPFS gateway.
             **You should always use an IPFS gateway that enforces origin separation**, or the alias to the latest release at [kongkowitpku.xyz](https://kongkowitpku.xyz).
             IPFS gateways:
-            - https://${{ steps.convert_cidv0.outputs.cidv1 }}.ipfs.dweb.link/
-            - https://${{ steps.convert_cidv0.outputs.cidv1 }}.ipfs.cf-ipfs.com/
-            - [ipfs://${{ steps.upload.outputs.hash }}/](ipfs://${{ steps.upload.outputs.hash }}/)
-            ${{ needs.bump_version.outputs.changelog }}
+            - https://${{ steps.web3.outputs.cid }}.ipfs.w3s.link
+            - https://${{ steps.web3.outputs.cid }}.ipfs.dweb.link
+            - https://${{ steps.web3.outputs.cid }}.ipfs.cf-ipfs.com
