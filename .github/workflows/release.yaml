@@ -45,15 +45,16 @@ jobs:
         run: yarn run export
 
       - name: Deploy to IPFS
-        uses: web3-storage/add-to-web3@v2
+        uses: 10xHuman/add-to-web3@main
         id: web3
         with:
-          path_to_add: out
+          path_to_add: "out"
+          file_name: "Kongkow ${{ needs.bump_version.outputs.new_tag }}"
           web3_token: ${{ secrets.WEB3_STORAGE_TOKEN}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update DNS with new IPFS hash testnet
+      - name: Update DNS with new IPFS hash
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
           RECORD_DOMAIN: "kongkowitpku.xyz"
