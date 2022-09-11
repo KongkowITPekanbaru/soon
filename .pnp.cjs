@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["autoprefixer", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:10.4.8"],\
+            ["multiformats", "npm:9.8.1"],\
             ["next", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:12.3.0"],\
             ["postcss", "npm:8.4.16"],\
             ["react", "npm:18.2.0"],\
@@ -58,6 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@kongkowitpku/soon", "workspace:."],\
             ["autoprefixer", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:10.4.8"],\
+            ["multiformats", "npm:9.8.1"],\
             ["next", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:12.3.0"],\
             ["postcss", "npm:8.4.16"],\
             ["react", "npm:18.2.0"],\
@@ -1300,6 +1302,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/ms-npm-2.1.3-81ff3cfac1-aa92de6080.zip/node_modules/ms/",\
           "packageDependencies": [\
             ["ms", "npm:2.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["multiformats", [\
+        ["npm:9.8.1", {\
+          "packageLocation": "./.yarn/cache/multiformats-npm-9.8.1-8fb4d73390-f75518e2c2.zip/node_modules/multiformats/",\
+          "packageDependencies": [\
+            ["multiformats", "npm:9.8.1"]\
           ],\
           "linkType": "HARD"\
         }]\
