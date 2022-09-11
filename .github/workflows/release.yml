@@ -95,6 +95,14 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: npx dnslink-cloudflare --record _dnslink --domain kongkowitpku.xyz --link /ipfs/${{ steps.web3.outputs.cid }}
 
+      - name: ⚡ Update Unstoppable Domains
+        uses: aquiladev/ddns-action@v0.3.0
+        with:
+          mnemonic: ${{ secrets.MNEMONIC }}
+          rpc: ${{ secrets.RPC }}
+          name: kongkowitpku.blockchain
+          contentHash: ${{ steps.web3.outputs.cid }}
+
       - name: 🆙 Create GitHub Release
         id: create_release
         uses: actions/create-release@v1.1.0
