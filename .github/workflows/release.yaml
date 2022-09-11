@@ -71,12 +71,11 @@ jobs:
           tag_name: ${{ needs.bump_version.outputs.new_tag }}
           release_name: Release ${{ needs.bump_version.outputs.new_tag }}
           body: |
-            IPFS hash of the deployment:
+            ### Alternative deployment:
             - **CID Hex Digest**: `${{ steps.web3.outputs.cid }}`
             The latest release is always accessible via an alias to the Cloudflare IPFS gateway at [kongkowitpku.xyz](https://kongkowitpku.xyz).
             You can also access This Page from any IPFS gateway.
-            **You should always use an IPFS gateway that enforces origin separation**, or the alias to the latest release at [kongkowitpku.xyz](https://kongkowitpku.xyz).
-            IPFS gateways:
-            - https://${{ steps.web3.outputs.cid }}.ipfs.w3s.link
-            - https://${{ steps.web3.outputs.cid }}.ipfs.dweb.link
-            - https://${{ steps.web3.outputs.cid }}.ipfs.cf-ipfs.com
+            - [`${{ steps.web3.outputs.cid }}`.ipfs.w3s.link](https://${{ steps.web3.outputs.cid }}.ipfs.w3s.link)
+            - [`${{ steps.web3.outputs.cid }}`.ipfs.dweb.link](https://${{ steps.web3.outputs.cid }}.ipfs.dweb.link)
+            - [`${{ steps.web3.outputs.cid }}`.ipfs.cf-ipfs.com](https://${{ steps.web3.outputs.cid }}.ipfs.cf-ipfs.com)
+            - **Unstoppable Domains**: [`kongkowitpku.blockchain`](https://kongkowitpku.blockchain)

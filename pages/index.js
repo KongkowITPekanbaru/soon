@@ -55,7 +55,10 @@ export default function Home() {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="title" content="Kongkow IT Pekanbaru" />
-        <meta name="description" content="Pekanbaru IT Enthusiast Community" />
+        <meta
+          name="description"
+          content="A nonprofit network of local makers & professionals."
+        />
         <meta
           name="keywords"
           content="Kongkow IT Pekanbaru, IT Enthusiast, Community, Pekanbaru"
@@ -70,7 +73,7 @@ export default function Home() {
         <meta property="og:title" content="Kongkow IT Pekanbaru" />
         <meta
           property="og:description"
-          content="Pekanbaru IT Enthusiast Community"
+          content="A nonprofit network of local makers & professionals."
         />
         <meta property="og:image" content="https://kongkowitpku.xyz/og.png" />
 
@@ -79,7 +82,7 @@ export default function Home() {
         <meta property="twitter:title" content="Kongkow IT Pekanbaru" />
         <meta
           property="twitter:description"
-          content="Pekanbaru IT Enthusiast Community"
+          content="A nonprofit network of local makers & professionals."
         />
         <meta
           property="twitter:image"
