@@ -1,5 +1,5 @@
 ---
-name: 🚀 Release
+name: "🚀 Release"
 
 on:
   # manual trigger
@@ -7,13 +7,13 @@ on:
 
 jobs:
   bump_version:
-    name: 📦 Bump Version
+    name: 🔖 Bump Version
     runs-on: ubuntu-latest
     outputs:
       new_tag: ${{ steps.github_tag_action.outputs.new_tag }}
       changelog: ${{ steps.github_tag_action.outputs.changelog }}
     steps:
-      - name: 🧑‍💻 Checkout
+      - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3
 
       - name: 📦 Bump version and push tag
@@ -24,29 +24,29 @@ jobs:
           release_branches: .*
 
   create_release:
-    name: 🚀 Create Release
+    name: 🌐 Create Release
     runs-on: ubuntu-latest
     needs: bump_version
     if: ${{ needs.bump_version.outputs.new_tag != null }}
     steps:
-      - name: 🧑‍💻 Checkout
+      - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v3
 
-      - name: 💻 Set up node
+      - name: 📦️ Set up node
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - name: 📦 Install dependencies
+      - name: 🗃️ Install dependencies
         run: yarn install --immutable --immutable-cache
 
-      - name: 👷 Build the app
+      - name: 🏗️ Build the app
         run: yarn run build
 
-      - name: 👷 Export SSG
+      - name: 🏗️ Export SSG
         run: yarn run export
 
-      - name: 🚀 Upload to Swarm
+      - name: 🚚 Upload to Swarm
         uses: ethersphere/swarm-actions/upload-dir@latest
         id: swarm-upload
         with:
@@ -56,7 +56,7 @@ jobs:
           timeout: 60000
           deferred: false
 
-      - name: 📦 Update Swarm feed
+      - name: 🚚 Update Swarm feed
         uses: ethersphere/swarm-actions/write-feed@latest
         id: swarm-feed
         with:
@@ -65,7 +65,7 @@ jobs:
           topic: kongkow/soon
           signer: ${{ secrets.SIGNER }}
 
-      - name: 🚀 Upload to Web3
+      - name: 🚚 Upload to Web3
         uses: 10xHuman/add-to-web3@main
         id: web3
         with:
@@ -75,13 +75,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📦 Collect Web3 CID's
+      - name: 🗑️ Collect Web3 CID's
         uses: mathiasvr/command-output@v1.1.0
         id: web3-cid
         with:
           run: yarn cid ${{ steps.web3.outputs.cid }}
 
-      - name: 📦 Collect Swarm CID's
+      - name: 🗑️ Collect Swarm CID's
         uses: ethersphere/swarm-actions/reference-to-cid@v0
         id: swarm-cid
         with:
@@ -95,15 +95,7 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
         run: npx dnslink-cloudflare --record _dnslink --domain kongkowitpku.xyz --link /ipfs/${{ steps.web3.outputs.cid }}
 
-      - name: ⚡ Update Unstoppable Domains
-        uses: aquiladev/ddns-action@v0.3.0
-        with:
-          mnemonic: ${{ secrets.MNEMONIC }}
-          rpc: ${{ secrets.RPC }}
-          name: kongkowitpku.blockchain
-          contentHash: ${{ steps.web3.outputs.cid }}
-
-      - name: 🆙 Create GitHub Release
+      - name: 💬 Create GitHub Release
         id: create_release
         uses: actions/create-release@v1.1.0
         env:
@@ -120,7 +112,6 @@ jobs:
             - [`${{ steps.web3.outputs.cid }}`.ipfs.w3s.link](https://${{ steps.web3.outputs.cid }}.ipfs.w3s.link)
             - [`${{ steps.web3.outputs.cid }}`.ipfs.dweb.link](https://${{ steps.web3.outputs.cid }}.ipfs.dweb.link)
             - [`${{ steps.web3.outputs.cid }}`.ipfs.cf-ipfs.com](https://${{ steps.web3.outputs.cid }}.ipfs.cf-ipfs.com)
-            - **Unstoppable Domains**: [`kongkowitpku.blockchain`](https://kongkowitpku.blockchain)
             ---
             ### Swarm deployment
             - **Upload ref**: `${{ steps.swarm-upload.outputs.reference }}`
