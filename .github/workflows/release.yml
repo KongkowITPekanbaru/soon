@@ -51,6 +51,7 @@ jobs:
         id: swarm
         with:
           path: ./out
+          swarmUrl: https://gateway.ethswarm.org
           verbose: true
 
       - name: 🚀 Deploy to Web3
