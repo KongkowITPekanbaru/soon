@@ -1,11 +1,11 @@
 import Head from "next/head";
+import Script from "next/script";
 import TopBar from "../src/components/TopBar";
 import HeadLine from "../src/components/Headline";
 import Footer from "../src/components/Footer";
 import RoundArt from "../src/components/RoundArt";
 import GridArt from "../src/components/GridArt";
 import ClipArt from "../src/components/ClipArt";
-import { Partytown } from "@builder.io/partytown/react";
 
 export default function Home() {
   return (
@@ -90,15 +90,11 @@ export default function Home() {
           content="https://kongkowitpku.xyz/og.png"
         />
         {/* ==== Third Party Scripts ==== */}
-        <Partytown debug={true} forward={["dataLayer.push"]} />
         {/* Analytics */}
-        <script
-          async
-          defer
+        <Script
+          strategy="lazyOnload"
           data-website-id="d1583115-1cef-471b-ba5e-904a35920fe4"
           src="https://umami.kongkowitpku.xyz/mojok.js"
-          // TODO: Uncomment this line
-          // type="text/partytown"
         />
       </Head>
       <TopBar />
