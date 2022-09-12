@@ -75,6 +75,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 🚚 Upload to Skynet
+        uses: SkynetLabs/deploy-to-skynet-action@v2.2.0
+        id: skynet
+        with:
+          upload-dir: out
+          try-files: /index.html
+          not-found-page: /404.html
+          portal-url: https://web3portal.com
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          skynet-api-key: ${{ secrets.SKYNET_API_KEY }}
+
       - name: 🗑️ Collect Web3 CID's
         uses: mathiasvr/command-output@v1.1.0
         id: web3-cid
@@ -118,3 +129,7 @@ jobs:
             - **Feed ref**: `${{ steps.swarm-feed.outputs.reference }}`
             - **Feed Manifest**: `${{ steps.swarm-feed.outputs.manifest }}`
             - **CID**: [`${{ steps.swarm-cid.outputs.cid }}`.bzz.link](https://${{ steps.swarm-cid.outputs.cid }}.bzz.link)
+            ---
+            ### Skynet deployment
+            - **Latest Url**: [`${{ steps.skynet.outputs.skylink }}`](${{ steps.skynet.outputs.skylink-url }})
+            - **Resolver Url**: [`${{ steps.skynet.outputs.resolver-skylink }}`](${{ steps.skynet.outputs.resolver-skylink-url }})
