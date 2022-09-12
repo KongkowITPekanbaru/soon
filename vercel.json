@@ -15,6 +15,10 @@
     {
       "source": "/view-source",
       "destination": "https://github.com/kongkowitpku/soon"
+    },
+    {
+      "source": "/stats",
+      "destination": "https://umami.kongkowitpku.xyz/share/35IxaV3M/home.kongkow"
     }
   ]
 }
