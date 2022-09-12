@@ -1,0 +1,20 @@
+{
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/telegram",
+      "destination": "https://t.me/kongkowITpekanbaru",
+      "permanent": false
+    },
+    {
+      "source": "/discord",
+      "destination": "https://discord.gg/RNDHAC5CKV",
+      "permanent": false
+    },
+    { "source": "/github", "destination": "https://github.com/kongkowitpku" },
+    {
+      "source": "/view-source",
+      "destination": "https://github.com/kongkowitpku/soon"
+    }
+  ]
+}
