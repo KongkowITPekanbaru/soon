@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@builder.io/partytown", "npm:0.7.0"],\
             ["autoprefixer", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:10.4.9"],\
             ["multiformats", "npm:9.8.1"],\
             ["next", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:12.3.0"],\
@@ -42,6 +43,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tailwindcss", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:3.1.8"]\
           ],\
           "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@builder.io/partytown", [\
+        ["npm:0.7.0", {\
+          "packageLocation": "./.yarn/cache/@builder.io-partytown-npm-0.7.0-98d0cd1cd4-fac24fbe8f.zip/node_modules/@builder.io/partytown/",\
+          "packageDependencies": [\
+            ["@builder.io/partytown", "npm:0.7.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@gar/promisify", [\
@@ -58,6 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@kongkowitpku/soon", "workspace:."],\
+            ["@builder.io/partytown", "npm:0.7.0"],\
             ["autoprefixer", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:10.4.9"],\
             ["multiformats", "npm:9.8.1"],\
             ["next", "virtual:c0af82ff090960b6f6c41c36b35c3424e3d9a9b897ce0791429ae6bcacab7eeb5fbe992905fcdd4cf3238afd9fb8c0da0ee2bd14f333a5916e7730d0f1082a59#npm:12.3.0"],\

@@ -134,3 +134,4 @@ jobs:
             ---
             ### Skynet deployment
             - **Latest Url**: [`${{ steps.skynet.outputs.skylink }}`](${{ steps.skynet.outputs.skylink-url }})
+            - **Resolver Url**: [`${{ steps.skynet.outputs.resolver-skylink }}`](${{ steps.skynet.outputs.resolver-skylink-url }})
