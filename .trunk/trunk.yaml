@@ -17,6 +17,15 @@ lint:
     - gitleaks@8.12.0
     - markdownlint@0.32.2
     - prettier@2.7.1
+  ignore:
+    - linters: [ALL]
+      paths:
+        # Ignoring files
+        - .next/**
+        - .yarn/**
+        - .pnp.*
+        - backup/**
+        - node_modules/**
   threshold:
     - linters: [ALL]
       level: high
