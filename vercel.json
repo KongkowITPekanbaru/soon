@@ -19,6 +19,10 @@
     {
       "source": "/stats",
       "destination": "https://umami.kongkowitpku.xyz/share/35IxaV3M/home.kongkow"
+    },
+    {
+      "source": "/mee6",
+      "destination": "https://mee6.xyz/leaderboard/690930402218606663"
     }
   ]
 }
