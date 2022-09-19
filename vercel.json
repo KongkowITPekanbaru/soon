@@ -24,11 +24,5 @@
       "source": "/mee6",
       "destination": "https://mee6.xyz/leaderboard/690930402218606663"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/avatar/:match*",
-      "destination": "https://avatar.nvnine.xyz/:match*"
-    }
   ]
 }
