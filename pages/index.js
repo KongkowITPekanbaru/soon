@@ -90,6 +90,8 @@ export default function Home() {
           content="https://kongkowitpku.xyz/og.png"
         />
         {/* ==== Third Party Scripts ==== */}
+        {/* CO2 Emissions */}
+        <script type="module" src="https://backspace.eco/b.js" />
         {/* Analytics */}
         <Script
           strategy="lazyOnload"
