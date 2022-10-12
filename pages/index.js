@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import TopBar from "../src/components/TopBar";
 import HeadLine from "../src/components/Headline";
 import Footer from "../src/components/Footer";
@@ -94,11 +93,12 @@ export default function Home() {
         />
         {/* ==== Third Party Scripts ==== */}
         {/* Analytics */}
-        <Script
-          strategy="lazyOnload"
+        <script
+          async
+          defer
           data-website-id="267f834a-45d2-441f-a294-1fff774518d4"
-          src="https://analytics.kongkowitpku.xyz/mojok.js"
-        />
+          src="https://analytics.kongkowitpku.xyz/analytics.js"
+        ></script>
       </Head>
       <TopBar />
       <HeadLine />
