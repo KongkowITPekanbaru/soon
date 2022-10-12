@@ -90,13 +90,11 @@ export default function Home() {
           content="https://kongkowitpku.xyz/og.png"
         />
         {/* ==== Third Party Scripts ==== */}
-        {/* CO2 Emissions */}
-        <script type="module" src="https://backspace.eco/b.js" />
         {/* Analytics */}
         <Script
           strategy="lazyOnload"
-          data-website-id="d1583115-1cef-471b-ba5e-904a35920fe4"
-          src="https://umami.kongkowitpku.xyz/mojok.js"
+          data-website-id="267f834a-45d2-441f-a294-1fff774518d4"
+          src="https://analytics.kongkowitpku.xyz/mojok.js"
         />
       </Head>
       <TopBar />
