@@ -96,8 +96,8 @@ export default function Home() {
         <script
           async
           defer
-          data-website-id="267f834a-45d2-441f-a294-1fff774518d4"
-          src="https://analytics.kongkowitpku.xyz/analytics.js"
+          data-website-id="71314870-21fb-43c7-b4ae-2b402b6932c5"
+          src="https://umami.kongkowitpku.xyz/mojok.js"
         ></script>
       </Head>
       <TopBar />
