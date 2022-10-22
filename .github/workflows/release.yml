@@ -69,36 +69,11 @@ jobs:
           registry-seed: ${{ secrets.REGISTRY_SEED }}
           registry-datakey: kongkowitpku.xyz
 
-      - name: 🚚 Upload to Swarm
-        uses: ethersphere/swarm-actions/upload-dir@latest
-        id: swarm-upload
-        with:
-          bee-url: https://gateway.fairdatasociety.org/proxy/
-          dir: out
-          index-document: index.html
-          timeout: 60000
-          deferred: false
-
-      - name: 🚚 Update Swarm feed
-        uses: ethersphere/swarm-actions/write-feed@latest
-        id: swarm-feed
-        with:
-          bee-url: https://gateway.fairdatasociety.org/proxy/
-          reference: ${{ steps.swarm-upload.outputs.reference }}
-          topic: kongkow/soon
-          signer: ${{ secrets.SIGNER }}
-
       - name: 🗑️ Collect Web3 CID's
         uses: mathiasvr/command-output@v1.1.0
         id: web3-cid
         with:
           run: yarn cid ${{ steps.web3.outputs.cid }}
-
-      - name: 🗑️ Collect Swarm CID's
-        uses: ethersphere/swarm-actions/reference-to-cid@v0
-        id: swarm-cid
-        with:
-          reference: ${{ steps.swarm-upload.outputs.reference }}
 
       - name: ⚡ Update DNS with new IPFS hash
         env:
@@ -125,12 +100,6 @@ jobs:
             - [`${{ steps.web3.outputs.cid }}`.ipfs.w3s.link](https://${{ steps.web3.outputs.cid }}.ipfs.w3s.link)
             - [`${{ steps.web3.outputs.cid }}`.ipfs.dweb.link](https://${{ steps.web3.outputs.cid }}.ipfs.dweb.link)
             - [`${{ steps.web3.outputs.cid }}`.ipfs.cf-ipfs.com](https://${{ steps.web3.outputs.cid }}.ipfs.cf-ipfs.com)
-            ---
-            ### Swarm deployment
-            - **Upload ref**: `${{ steps.swarm-upload.outputs.reference }}`
-            - **Feed ref**: `${{ steps.swarm-feed.outputs.reference }}`
-            - **Feed Manifest**: `${{ steps.swarm-feed.outputs.manifest }}`
-            - **CID**: [`${{ steps.swarm-cid.outputs.cid }}`.bzz.link](https://${{ steps.swarm-cid.outputs.cid }}.bzz.link)
             ---
             ### Skynet deployment
             - **Latest Url**: [`${{ steps.skynet.outputs.skylink }}`](${{ steps.skynet.outputs.skylink-url }})
