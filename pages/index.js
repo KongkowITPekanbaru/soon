@@ -75,10 +75,7 @@ export default function Home() {
           property="og:description"
           content="A nonprofit network of local makers & professionals."
         />
-        <meta
-          property="og:image"
-          content="https://kongkowitpku.xyz/og.png"
-        />
+        <meta property="og:image" content="https://kongkowitpku.xyz/og.png" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://kongkowitpku.xyz" />

@@ -15,7 +15,9 @@ export default function Footer() {
           BLOG
         </div>
         |
-        <div onClick={() => window.open("https://github.com/KongkowITPekanbaru")}>
+        <div
+          onClick={() => window.open("https://github.com/KongkowITPekanbaru")}
+        >
           GITHUB
         </div>
         |

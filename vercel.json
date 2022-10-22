@@ -11,7 +11,10 @@
       "destination": "https://discord.gg/CNpPdG5T5Y",
       "permanent": false
     },
-    { "source": "/github", "destination": "https://github.com/KongkowITPekanbaru" },
+    {
+      "source": "/github",
+      "destination": "https://github.com/KongkowITPekanbaru"
+    },
     {
       "source": "/view-source",
       "destination": "https://github.com/KongkowITPekanbaru/soon"

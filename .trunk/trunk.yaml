@@ -30,7 +30,7 @@ lint:
         - backup/**
         - node_modules/**
 cli:
-  version: 0.18.1-beta
+  version: 1.0.1
 plugins:
   sources:
     - id: trunk
