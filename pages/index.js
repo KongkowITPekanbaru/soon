@@ -69,7 +69,7 @@ export default function Home() {
         <meta name="revisit-after" content="1 days"></meta>
         <title>Kongkow IT Pekanbaru</title>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.kongkowitpku.xyz" />
+        <meta property="og:url" content="https://kongkowitpku.xyz" />
         <meta property="og:title" content="Kongkow IT Pekanbaru" />
         <meta
           property="og:description"
@@ -77,11 +77,11 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://www.kongkowitpku.xyz/og.png"
+          content="https://kongkowitpku.xyz/og.png"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.kongkowitpku.xyz" />
+        <meta property="twitter:url" content="https://kongkowitpku.xyz" />
         <meta property="twitter:title" content="Kongkow IT Pekanbaru" />
         <meta
           property="twitter:description"
@@ -89,7 +89,7 @@ export default function Home() {
         />
         <meta
           property="twitter:image"
-          content="https://www.kongkowitpku.xyz/og.png"
+          content="https://kongkowitpku.xyz/og.png"
         />
         {/* ==== Third Party Scripts ==== */}
         {/* Analytics */}

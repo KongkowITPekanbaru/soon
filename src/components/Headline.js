@@ -8,7 +8,7 @@ export default function HeadLine() {
 
       <div className="social-section mt-2 md:mt-4">
         <Button
-          onClick={() => window.open("https://discord.gg/RNDHAC5CKV")}
+          onClick={() => window.open("https://discord.gg/CNpPdG5T5Y")}
           text="Join our Discord"
         />
         <Button
